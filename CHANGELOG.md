@@ -1,5 +1,37 @@
 # Release notes
 
+## v0.130
+
+#### Feat
+
+- Access the HttpRequest object under `Component.request`.
+
+    To pass the request object to a component, either:
+    - Render a template or component with `RequestContext`,
+    - Or set the `request` kwarg to `Component.render()` or `Component.render_to_response()`.
+
+    Read more on [HttpRequest](https://django-components.github.io/django-components/0.130/concepts/fundamentals/http_request/).
+
+- Access the context processors data under `Component.context_processors_data`.
+
+    Context processors data is available only when the component has access to the `request` object,
+    either by:
+    - Passing the request to `Component.render()` or `Component.render_to_response()`,
+    - Or by rendering a template or component with `RequestContext`,
+    - Or being nested in another component that has access to the request object.
+
+    The data from context processors is automatically available within the component's template.
+
+    Read more on [HttpRequest](https://django-components.github.io/django-components/0.130/concepts/fundamentals/http_request/).
+
+## v0.129
+
+#### Fix
+
+- Fix thread unsafe media resolve validation by moving it to ComponentMedia `__post_init` ([#977](https://github.com/django-components/django-components/pull/977)
+- Fix bug: Relative path in extends and include does not work when using template_file ([#976](https://github.com/django-components/django-components/pull/976)
+- Fix error when template cache setting (`template_cache_size`) is set to 0 ([#974](https://github.com/django-components/django-components/pull/974)
+
 ## v0.128
 
 #### Feat
